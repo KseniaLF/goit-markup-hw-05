@@ -84,12 +84,14 @@ img {
   margin-right: 50px;
 }
 .site-nav .link {
+  position: relative;
+  display: block;
   color: var(--main-text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
-  transition: color 250ms linear;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-contact .link {
   display: flex;
@@ -100,7 +102,8 @@ img {
   line-height: 1.14;
   letter-spacing: 0.02em;
   fill: #757575;
-  transition: color 250ms linear, fill 250ms linear;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-nav .link:hover,
 .site-nav .link:focus,
@@ -111,6 +114,18 @@ img {
 }
 .header-icon {
   margin-right: 10px;
+}
+
+.current-link::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 4px;
+  margin-top: 28px;
+  display: block;
+  background-color: var(--accent-color);
+  border-radius: 2px;
 }
 /* ======================MAIN==========*/
 /* hero */
@@ -155,7 +170,7 @@ img {
   text-align: center;
   letter-spacing: 0.06em;
   cursor: pointer;
-  transition: background-color 250ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-btn:hover,
 .button-btn:focus {
@@ -212,7 +227,7 @@ img {
   background: #f5f4fa;
   border-radius: 4px;
 }
-/* classes */
+/* ======================classes============ */
 .classes {
   padding-bottom: 94px;
 }
@@ -224,6 +239,7 @@ img {
   justify-content: space-between;
 }
 .classes-item {
+  position: relative;
   flex-basis: calc((100% - 90px) / 3);
   margin-top: 30px;
   margin-left: 30px;
@@ -235,6 +251,25 @@ img {
   line-height: 1.16;
   text-align: center;
   letter-spacing: 0.03em;
+}
+.classes-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  overflow: auto;
+  background: rgba(47, 48, 58, 0.8);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
 }
 /* =================team============= */
 .team {
@@ -311,7 +346,8 @@ img {
   fill: #afb1b8;
 }
 .team-icon-link {
-  transition: background-color 250ms linear, fill 250ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-icon-link:hover,
 .team-icon-link:focus {
@@ -357,7 +393,8 @@ img {
   border-radius: 4px;
 }
 .clients-link-icon {
-  transition: fill 250ms linear, border 250ms linear;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link-icon:hover,
 .clients-link-icon:focus {
@@ -393,7 +430,7 @@ img {
   color: #ffffff;
 }
 .address .link {
-  transition: color 250ms linear;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address .link:hover,
 .address .link:focus {
@@ -426,7 +463,7 @@ img {
   margin-right: 10px;
 }
 .footer-link-icon {
-  transition: background-color 250ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .footer-link-icon:hover,
 .footer-link-icon:focus {
@@ -450,7 +487,9 @@ img {
   text-align: center;
   letter-spacing: 0.03em;
   cursor: pointer;
-  transition: background-color 500ms linear, color 500ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button {
   display: flex;
@@ -484,6 +523,7 @@ img {
   margin-top: 30px;
   flex-basis: calc(100% / 3 - 90px);
   background: #ffffff;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-item:hover,
 .portfolio-item:focus {
@@ -505,12 +545,12 @@ img {
   line-height: 1.87;
   letter-spacing: 0.03em;
 }
-.portfolio-title:hover,
+/* .portfolio-title:hover,
 .portfolio-title:focus,
 .portfolio-direction:hover,
 .portfolio-direction:focus {
   color: var(--accent-color);
-}
+} */
 .portfolio-grid-link {
   display: block;
 }
